@@ -4,6 +4,8 @@ hide circle
 
 class RoboDog {
  -myName:String
+ 'dattime?= bigInt?UNIXTime
+ 'UUNIXTime 1970/01/01 00:00:00 を0として、1ずつ追加するものとする
  -myTime:int
  -goodMorning:String
  -goodAfternoon :String
@@ -12,6 +14,7 @@ class RoboDog {
  -secondValue:int
  -result:int
 
+'返り値: void → 何も値を返さない
  +getMyName():String
  +setNewName():int
  +setNewTime():void
