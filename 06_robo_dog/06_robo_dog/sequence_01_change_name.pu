@@ -1,0 +1,43 @@
+@startuml RoboDogシステム-名前変更シーケンス図
+hide footbox
+skinparam boundaryBackgroundColor #D5E8D4
+skinparam controlBackgroundColor  #F8CECC
+skinparam entityBackgroundColor   #DAE8FC
+
+actor ユーザー as A
+boundary "RoboDog_menu.htm" as B1
+boundary 名前の変更画面 as B2
+boundary 名前の変更結果画面 as B3
+control "ChangeMyNameData.jsp" as C1
+control  "ChangeMyName.jsp"as C2
+entity "Robodog.java" as E
+
+A -> B1: 名前の変更を選択()
+activate B1
+
+B1 -> C1: 現在の名前を取得()
+activate C1
+C1 -> E: getMyName()
+activate E
+E --> C1: 現在の名前
+deactivate E
+C1 -> B2: 表示()
+deactivate C1
+deactivate B1
+activate B2
+
+A -> B2: 新しい名前を入力()
+
+B2 -> C2: 新しい名前を登録()
+activate C2
+C2 -> E: 名前保存()
+activate E
+E --> C2: SetMyName()
+deactivate E
+
+C2 -> B3: 表示()
+deactivate C2
+deactivate B2
+activate B3
+
+@enduml
