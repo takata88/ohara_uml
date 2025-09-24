@@ -3,21 +3,22 @@ skinparam classAttributeIconSize 0
 hide circle
 
 class RoboDog {
- -myName
- -myTime
- -goodMorning
- -goodAfternoon 
- -goodNight
- -firstValue
- -secondValue
- -result
+ -myName:String
+ -myTime:int
+ -goodMorning:String
+ -goodAfternoon :String
+ -goodNight:String
+ -firstValue:int
+ -secondValue:int
+ -result:int
 
- +getMyName()
- +setMyName()
- +setNewTime()
- +getMyGreeting()
- +setTwoValues()
- +setAndGetResult()
+ +getMyName():String
+ +setNewName():int
+ +setNewTime():void
+ +getMyGreeting():String
+ +setTwoValues():void
+ +setAndGetResult():void
+ +getAddition():int
 }
 
 @enduml
