@@ -2,7 +2,8 @@ from wsgiref.simple_server import make_server
 from controllers.robodog_menu import robodog_menu
 from controllers.change_my_name_data import change_my_name_data
 from controllers.greet_with_time import greet_with_time
-from ohara_uml.lesson_sample.micro_site.controllers.calc_data import calc
+from controllers.add_numbers import add_numbers
+
 
 def application(environ, start_response):
     path = environ.get("PATH_INFO", "/")
@@ -19,7 +20,7 @@ def application(environ, start_response):
         body = greet_with_time()
 
     elif path == "/calc":
-        body = calc()
+        body = add_numbers(environ)
 
     else:
         start_response("404 Not Found", headers)
@@ -27,6 +28,7 @@ def application(environ, start_response):
 
     start_response("200 OK", headers)
     return [body.encode("utf-8")]
+
 
 if __name__ == "__main__":
     port = 8000
