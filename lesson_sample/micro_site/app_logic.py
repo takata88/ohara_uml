@@ -44,3 +44,22 @@ def get_my_greeting() -> str:
             return data.get("good_night")
     except (json.JSONDecodeError, OSError):
         return ""
+
+
+
+def set_number() -> int:
+    """数字をJSONに保存"""
+    with open(ROBODOG_FILE, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    data['calc'] = set_number
+    with open(ROBODOG_FILE, 'w', encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+def get_calc() -> int:
+    """足し算する"""
+    try:
+        with open(ROBODOG_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data.get("calc", "")
+    except (json.JSONDecodeError, OSError):
+        return ""
